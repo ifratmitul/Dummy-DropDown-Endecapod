@@ -1,0 +1,10 @@
+<p-dropdown
+  *ngIf="options && options?.values"
+  [filter]="true"
+  placeholder="Select an option"
+  [options]="options.values"
+  optionLabel="name"
+  optionValue="name"
+  [resetFilterOnHide]="true"
+  [(ngModel)]="option"
+></p-dropdown>

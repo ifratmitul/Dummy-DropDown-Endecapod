@@ -1,0 +1,3 @@
+<div class="filter-container" *ngIf="filters">
+  <app-filter *ngFor="let f of filters"  [options]="f"> </app-filter>
+</div>

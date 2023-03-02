@@ -1,0 +1,7 @@
+<section class="select-group">
+  <label class="ib-label">{{ options.name }}</label>
+  <app-single-select-filter
+    *ngIf="!options.multi"
+    [options]="options"
+  ></app-single-select-filter>
+</section>

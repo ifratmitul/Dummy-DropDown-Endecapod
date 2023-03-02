@@ -1,0 +1,10 @@
+.filter-container {
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    // border: 1px solid red;
+    & > * {
+        padding: 5px;
+    }
+}
