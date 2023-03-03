@@ -1,0 +1,11 @@
+<p-multiSelect
+  *ngIf="options && options?.values"
+  [options]="options.values"
+  [(ngModel)]="options.selectedValues"
+  optionLabel="name"
+  optionValue="name"
+  defaultLabel="Select one or more options"
+  filterPlaceHolder="Find {{ options.name }}"
+  [showToggleAll]="false"
+  style="min-width: 42px;"
+></p-multiSelect>

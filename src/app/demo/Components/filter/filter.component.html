@@ -1,5 +1,9 @@
 <section class="select-group">
   <label class="ib-label">{{ options.name }}</label>
+  <app-multi-select-filter
+    *ngIf="options.multi"
+    [options]="options"
+  ></app-multi-select-filter>
   <app-single-select-filter
     *ngIf="!options.multi"
     [options]="options"

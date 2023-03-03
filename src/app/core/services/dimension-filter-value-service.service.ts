@@ -7,7 +7,7 @@ import { filter, map, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class DimensionFilterValueServiceService {
+export class DimensionFilterValueServiceService  {
 
   constructor(
     private exposeSvc: EndecapodService,

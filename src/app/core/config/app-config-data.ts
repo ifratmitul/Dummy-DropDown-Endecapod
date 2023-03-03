@@ -1,5 +1,6 @@
 import { Dimension } from "@ibfd/endecapod";
 import { TsmChips, TsmConfig } from "./tsm-config";
+import { FeatureConfig, MultilateralMappConfig, TreatySearchFeatureConfig } from "./featureConfig";
 
 export enum RecordLabel {
     RECORD = 0,
@@ -90,5 +91,16 @@ export class AppConfigData {
 
     getInitQuery(): string {
         return this.configMap['endecapod']['initial_query'];
+    }
+
+    private getLabToolsConfig(): FeatureConfig {
+        return new FeatureConfig(this.configMap['features']);
+    }
+
+    public getTreatySearchFeatureConfig(): TreatySearchFeatureConfig {
+        return this.getLabToolsConfig().getTreatySearchConfig();
+    }
+    public getLabMultilateralMappConfig(): MultilateralMappConfig {
+        return this.getLabToolsConfig().getMultilateralMappConfig();
     }
 }

@@ -54,16 +54,12 @@ export class DemoComponent implements OnInit, OnDestroy {
   }
 
   private loadFilters() {
-    console.log("In Load filter");
     const tsmChips: any = this.appConfigData?.getTsmEnablerChips();
-    console.log("tsmChip :: ", tsmChips)
-
     zip(this.getTsmFilters(tsmChips), this.getTreatyStatusFilter())
       .pipe(
         take(1)
       ).subscribe(([filters, treatyStatusFilter]) => {
-        console.log("filter :: ", filters);
-        console.log("treatestatusFilter:  ", treatyStatusFilter)
+    
         this.filters = this.swapFilter(filters);
         this.treatyStatusFilter = treatyStatusFilter;
       });
@@ -77,14 +73,11 @@ export class DemoComponent implements OnInit, OnDestroy {
   }
 
   private getTsmFilters(tsmChips: TsmChips[]): Observable<Option[]> {
-    const valueService = new DimensionFilterValueServiceService(this.filterExposeService, this.endecapodService);
-    console.log("valueService :: ", valueService)
-    const virtualCountryDimValIds = this.appConfigData?.getVirtualCountryDimValIds();
-    console.log("virtualCountryDimValIds :: ", virtualCountryDimValIds)
+    const valueService = new DimensionFilterValueServiceService(this.filterExposeService, this.endecapodService);  
+    const virtualCountryDimValIds = this.appConfigData?.getVirtualCountryDimValIds();  
     return from(tsmChips)
       .pipe(
         concatMap(chip => {
-          console.log("chip :: ", chip)
           return valueService.getValues(chip.dimension).pipe(
             mergeMap(op => op.values),
             filter(v => !virtualCountryDimValIds?.includes(v.id)),
